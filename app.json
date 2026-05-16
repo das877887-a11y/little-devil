@@ -4,6 +4,13 @@
     "slug": "little-devil",
     "version": "1.0.0",
     "orientation": "portrait",
+    "androidStatusBar": {
+      "hidden": true,
+      "translucent": true
+    },
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
     "icon": "./assets/images/icon.png",
     "scheme": "littledevil",
     "userInterfaceStyle": "automatic",
@@ -17,7 +24,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.zer1.littledevil"
     },
     "web": {
       "output": "static",
@@ -39,6 +47,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "252ee7a8-be99-474d-a3d3-bad250a9907b"
+      }
     }
   }
 }
