@@ -175,6 +175,7 @@ export default function Game() {
   const leftTouchId = useRef<number | null>(null);
   const leftTouchX = useRef<number | null>(null);
   const jumpTouchId = useRef<number | null>(null);
+  const jumpHeld = useRef(false);
 
   useEffect(() => {
     const sub = Dimensions.addEventListener('change', ({ window }) => setDims(window));
@@ -287,7 +288,7 @@ export default function Game() {
         leftTouchId.current = t.identifier; leftTouchX.current = tx;
         moving.current = 'right'; setFacingRight(true);
       } else if (tx >= jumpBtnX && tx <= jumpBtnX + BTN_W && ty >= btnY && ty <= btnY + BTN_H) {
-        jumpTouchId.current = t.identifier; doJump();
+        jumpTouchId.current = t.identifier; doJump(); jumpHeld.current = true;
       }
     }
   }
@@ -315,7 +316,7 @@ export default function Game() {
       if (t.identifier === leftTouchId.current) {
         leftTouchId.current = null; leftTouchX.current = null; moving.current = null;
       }
-      if (t.identifier === jumpTouchId.current) jumpTouchId.current = null;
+      if (t.identifier === jumpTouchId.current) { jumpTouchId.current = null; jumpHeld.current = false; }
     }
   }
 
@@ -323,6 +324,7 @@ export default function Game() {
     if (screen !== 'game') return;
     const interval = setInterval(() => {
       if (!alive.current) return;
+      if (jumpHeld.current) doJump();
       const lev = getLevelData(currentLevel, W, H);
       let vx = 0;
       if (moving.current === 'right') vx = MOVE_SPEED;
