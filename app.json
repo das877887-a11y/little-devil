@@ -3,7 +3,7 @@
     "name": "little-devil",
     "slug": "little-devil",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "androidStatusBar": {
       "hidden": true,
       "translucent": true

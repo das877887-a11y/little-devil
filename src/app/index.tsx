@@ -109,7 +109,7 @@ export default function Game() {
   const audioCtx = useRef<any>(null);
 
   function getAudio() {
-    if (typeof window === 'undefined') return null;
+    if (typeof window === "undefined" || !window.AudioContext && !(window as any).webkitAudioContext) return null;
     if (!audioCtx.current) {
       audioCtx.current = new (window.AudioContext || (window as any).webkitAudioContext)();
     }
