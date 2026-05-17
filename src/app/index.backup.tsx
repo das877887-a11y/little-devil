@@ -191,11 +191,11 @@ export default function Game() {
 
   const W = dims.width;
   const H = dims.height;
-  const BTN_W = 110;
-  const BTN_H = 56;
-  const btnY = H - BTN_H - 8;
+  const BTN_W = 80;
+  const BTN_H = 44;
+  const btnY = H - BTN_H - 28;
   const leftBtnX = 18;
-  const rightBtnX = leftBtnX + BTN_W + 12;
+  const rightBtnX = 108;
   const jumpBtnX = W - BTN_W - 18;
 
   function resetLevel() {
