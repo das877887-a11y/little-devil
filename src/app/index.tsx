@@ -2,8 +2,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { View, Text, Dimensions } from 'react-native';
 
 const getScreen = () => Dimensions.get('window');
-const GRAVITY = 0.7;
-const JUMP_FORCE = -15;
+const GRAVITY = 0.9;
+const JUMP_FORCE = -13;
 const MOVE_SPEED = 4;
 const PLAYER_W = 20;
 const PLAYER_H = 28;
@@ -465,7 +465,7 @@ export default function Game() {
 
   return (
     <View
-      style={{ width: W, height: H, backgroundColor: '#c8780a', overflow: 'hidden', transform: [{ translateX: shakeX }] }}
+      style={{ width: W, height: H, backgroundColor: '#c8780a', overflow: 'hidden', marginHorizontal: 'auto', transform: [{ translateX: shakeX }] }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd} onContextMenu={(e: any) => e.preventDefault()}
